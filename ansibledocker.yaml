@@ -9,7 +9,7 @@
         tag: latest
         build:
           path: /home/ravi/demo
-          dockerfile: /home/ravi/demo
+          dockerfile: sweee123/Dockerfile
 
     - name: Run Docker container
       docker_container:
