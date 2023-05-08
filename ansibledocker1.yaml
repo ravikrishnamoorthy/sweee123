@@ -1,0 +1,21 @@
+- hosts: 127.0.0.1
+  gather_facts: false
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+  tasks:
+    - name: to build the docker image
+      docker_image:
+        name: demo.jar
+        tag: latest
+        build:
+          path: /home/ravi/demo
+          dockerfile: /home/ravi/demo
+
+    - name: Run Docker container
+      docker_container:
+        name: demo
+        image: demo.jar:latest
+        ports:
+          - "9098:9090"
+        restart_policy: always
+
